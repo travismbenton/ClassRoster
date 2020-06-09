@@ -65,7 +65,8 @@ public class ClassRosterController {
         
         exitMessage();
     } catch (ClassRosterPersistenceException e){
-        view.displayErrorMessage(e.getMessage());
+        //view.displayErrorMessage(e.getMessage());
+        run();
     }
         
     } // -- run METHOD --
