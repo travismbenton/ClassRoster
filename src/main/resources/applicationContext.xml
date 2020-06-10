@@ -17,19 +17,28 @@
          http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
  
     <!-- bean definitions go here -->   
-    <bean id="userIO" class="com.sg.classroster.ui.UserIOConsoleImpl"/>       
-    <bean id="view" class="com.sg.classroster.ui.ClassRosterView">
+    <bean id="userIO" 
+          class="com.sg.classroster.ui.UserIOConsoleImpl"/> 
+          
+    <bean id="view" 
+          class="com.sg.classroster.ui.ClassRosterView">
         <constructor-arg ref="userIO"/>
     </bean>    
     
-    <bean id="classRosterDao" class="com.sg.classroster.dao.ClassRosterDaoFileImpl"/>
-    <bean id="auditDao" class="com.sg.classroster.dao.ClassRosterAuditDaoFileImpl"/>
-    <bean id="serviceLayer" class="com.sg.classroster.service.ClassRosterServiceLayerImpl">
+    <bean id="classRosterDao" 
+          class="com.sg.classroster.dao.ClassRosterDaoFileImpl"/>
+    
+    <bean id="auditDao" 
+          class="com.sg.classroster.dao.ClassRosterAuditDaoFileImpl"/>
+    
+    <bean id="serviceLayer" 
+          class="com.sg.classroster.service.ClassRosterServiceLayerImpl">
         <constructor-arg ref="classRosterDao"/>
         <constructor-arg ref="auditDao"/>
     </bean>
     
-    <bean id="controller" class="com.sg.classroster.controller.ClassRosterController">
+    <bean id="controller" 
+          class="com.sg.classroster.controller.ClassRosterController">
         <constructor-arg ref="serviceLayer"/>
         <constructor-arg ref="view"/>
     </bean> 
