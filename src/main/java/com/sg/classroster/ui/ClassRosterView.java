@@ -31,9 +31,9 @@ public class ClassRosterView {
         io.print("2. Create New Student");
         io.print("3. View a Student");
         io.print("4. Remove a Student");
-        io.print("5. Exit"); 
+        io.print("5. Exit");        
             
-        return io.readInt("Please select from the above choices. ", 1, 5);
+        return io.readInt("Please select from the above choices.", 1, 5);
         
     }        
    //io.print(studentId+" Currently in use! Please try again.");

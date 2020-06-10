@@ -9,7 +9,9 @@ import com.sg.classroster.dao.ClassRosterAuditDao;
 import com.sg.classroster.dao.ClassRosterAuditDaoStubImpl;
 import com.sg.classroster.dao.ClassRosterDao;
 import com.sg.classroster.dao.ClassRosterDaoStubImpl;
+import com.sg.classroster.dao.ClassRosterPersistenceException;
 import com.sg.classroster.dto.Student;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -26,13 +30,16 @@ import org.junit.jupiter.api.Test;
  */
 public class ClassRosterServiceLayerTest {
     
-    private ClassRosterServiceLayer service;
+    ClassRosterServiceLayer service;
     
     public ClassRosterServiceLayerTest() {
-        ClassRosterDao dao = new ClassRosterDaoStubImpl();
-        ClassRosterAuditDao auditDao = new ClassRosterAuditDaoStubImpl();
         
-        service = new ClassRosterServiceLayerImpl(dao, auditDao);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        service = ctx.getBean("serviceLayer", ClassRosterServiceLayer.class);
+//        ClassRosterDao dao = new ClassRosterDaoStubImpl();
+//        ClassRosterAuditDao auditDao = new ClassRosterAuditDaoStubImpl();
+        
+//        service = new ClassRosterServiceLayerImpl(dao, auditDao);
     }
     
     @BeforeAll
@@ -45,6 +52,7 @@ public class ClassRosterServiceLayerTest {
     
     @BeforeEach
     public void setUp() {
+        
     }
     
     @AfterEach
@@ -56,7 +64,7 @@ public class ClassRosterServiceLayerTest {
      */
     @Test // -- "Business Rules" CreateStudent 1 of 3 Test --
     public void testCreateStudent() throws Exception {
-        Student student = new Student("0010");
+        Student student = new Student("0021");
         student.setFirstName("Sally");
         student.setLastName("Smith");
         student.setCohort("Java-May-2020");
@@ -80,7 +88,7 @@ public class ClassRosterServiceLayerTest {
     
     @Test // -- "Business Rules" CreateStudent 3 of 3 Test --
     public void testCreateStudentInvalidData() throws Exception{
-        Student student = new Student("0011");
+        Student student = new Student("0031");
         student.setFirstName("");
         student.setLastName("Smith");
         student.setCohort("Java-May-2020");
@@ -118,11 +126,11 @@ public class ClassRosterServiceLayerTest {
      */
     @Test
     public void testRemoveStudent() throws Exception {
-        Student student = service.removeStudent("0001");
+        Student student = service.removeStudent("0021");
         assertNotNull(student);
         
         student = service.removeStudent("9999");
-        assertNull(student);
+        assertNull(student);  
     }
 
    
