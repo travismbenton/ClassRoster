@@ -7,6 +7,7 @@ C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-class
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\dao\ClassRosterAuditDao.java
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\dao\ClassRosterDaoFileImpl.java
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\controller\ClassRosterController.java
+C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\advice\LoggingAdvice.java
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\App.java
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\service\ClassRosterDataValidationException.java
 C:\Users\travi\Documents\Repos\online-java-2019-travismbenton\Classwork\m3-classwork\M3\ClassRoster\src\main\java\com\sg\classroster\service\ClassRosterDuplicateIdException.java

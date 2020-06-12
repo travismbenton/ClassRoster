@@ -5,11 +5,6 @@
  */
 package com.sg.classroster.service;
 
-import com.sg.classroster.dao.ClassRosterAuditDao;
-import com.sg.classroster.dao.ClassRosterAuditDaoStubImpl;
-import com.sg.classroster.dao.ClassRosterDao;
-import com.sg.classroster.dao.ClassRosterDaoStubImpl;
-import com.sg.classroster.dao.ClassRosterPersistenceException;
 import com.sg.classroster.dto.Student;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -23,6 +18,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.annotation.Order;
 
 /**
  *
@@ -43,7 +39,11 @@ public class ClassRosterServiceLayerTest {
     }
     
     @BeforeAll
-    public static void setUpClass() {
+    public void setUpClass() throws Exception {
+        List<Student>studentList = service.getAllStudents();
+        for (Student student : studentList){
+            service.removeStudent(student.getStudentId());
+        }
     }
     
     @AfterAll
@@ -51,18 +51,28 @@ public class ClassRosterServiceLayerTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
+        Student student = new Student("0001");
+        student.setFirstName("Sally");
+        student.setLastName("Smith");
+        student.setCohort("Java-May-2020");
+        service.createStudent(student); 
         
+        student = new Student("0002");
+        student.setFirstName("Sally");
+        student.setLastName("Smith");
+        student.setCohort("Java-May-2020");
+        service.createStudent(student);  
     }
     
     @AfterEach
     public void tearDown() {
     }
-
+    
     /**
      * Test of createStudent method, of class ClassRosterServiceLayer.
      */
-    @Test // -- "Business Rules" CreateStudent 1 of 3 Test --
+    @Test // -- "Business Rules" CreateStudent 1 of 3 Test --    
     public void testCreateStudent() throws Exception {
         Student student = new Student("0021");
         student.setFirstName("Sally");
@@ -71,9 +81,9 @@ public class ClassRosterServiceLayerTest {
         service.createStudent(student);        
     }
     
-    @Test // -- "Business Rules" CreateStudent 2 of 3 Test --
+    @Test // -- "Business Rules" CreateStudent 2 of 3 Test --    
     public void testCreateStudentDuplicateId() throws Exception{
-        Student student = new Student("0001");
+        Student student = new Student("0002");
         student.setFirstName("Sally");
         student.setLastName("Smith");
         student.setCohort("Java-May-2020");
@@ -86,7 +96,7 @@ public class ClassRosterServiceLayerTest {
         }
     }
     
-    @Test // -- "Business Rules" CreateStudent 3 of 3 Test --
+    @Test // -- "Business Rules" CreateStudent 3 of 3 Test --    
     public void testCreateStudentInvalidData() throws Exception{
         Student student = new Student("0031");
         student.setFirstName("");
@@ -99,40 +109,36 @@ public class ClassRosterServiceLayerTest {
         } catch (ClassRosterDataValidationException e) {
             return;                
         }
-    }
-
-    /**
-     * Test of getAllStudents method, of class ClassRosterServiceLayer.
-     */
-    @Test
-    public void testGetAllStudents() throws Exception {
-        assertEquals(1, service.getAllStudents().size());
-    }
+    }    
 
     /**
      * Test of getStudent method, of class ClassRosterServiceLayer.
      */
-    @Test
+    @Test    
     public void testGetStudent() throws Exception {
-        Student student = service.getStudent("0001");
+        Student student = service.getStudent("0002");
         assertNotNull(student);
         
-        student = service.getStudent("9999");
+        student = service.getStudent("9900");
         assertNull(student);       
     }
 
     /**
      * Test of removeStudent method, of class ClassRosterServiceLayer.
      */
-    @Test
+    @Test    
     public void testRemoveStudent() throws Exception {
-        Student student = service.removeStudent("0021");
-        assertNotNull(student);
-        
-        student = service.removeStudent("9999");
-        assertNull(student);  
+        Student student = service.removeStudent("0001");
+        assertNull(student);        
     }
-
+    
+    /**
+     * Test of getAllStudents method, of class ClassRosterServiceLayer.
+     */
+    @Test    
+    public void testGetAllStudents() throws Exception {
+        assertEquals(2, service.getAllStudents().size());
+    }
    
     
 }

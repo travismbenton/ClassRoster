@@ -125,9 +125,9 @@ public class UserIOConsoleImpl implements UserIO {
 
     public String readString(String prompt){
         Scanner sc = new Scanner(System.in);
-        System.out.print(prompt);
+        System.out.println(prompt);
         String input = sc.nextLine();
-        System.out.println(input);        
+        //System.out.println(input);        
         return input;
     }
 

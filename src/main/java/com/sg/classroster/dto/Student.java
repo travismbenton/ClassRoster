@@ -88,6 +88,12 @@ public class Student { // -- THIS IS OUR STUDENT(DTO) --
         return true;
     }
     
+    @Override
+    public String toString() {
+    return "ID: " + studentId + " |Name: " + firstName + " " 
+            + lastName + " |Cohort: " + cohort;
+}
+    
     
     
 

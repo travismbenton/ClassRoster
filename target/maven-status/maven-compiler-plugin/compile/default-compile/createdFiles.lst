@@ -4,6 +4,7 @@ com\sg\classroster\dao\ClassRosterDao.class
 com\sg\classroster\service\ClassRosterDuplicateIdException.class
 com\sg\classroster\dao\ClassRosterAuditDaoFileImpl.class
 com\sg\classroster\dto\Student.class
+com\sg\classroster\advice\LoggingAdvice.class
 com\sg\classroster\ui\ClassRosterView.class
 com\sg\classroster\dao\ClassRosterAuditDao.class
 com\sg\classroster\service\ClassRosterDataValidationException.class
