@@ -28,8 +28,7 @@ public class ClassRosterServiceLayerTest {
     
     ClassRosterServiceLayer service;
     
-    public ClassRosterServiceLayerTest() {
-        
+    public ClassRosterServiceLayerTest() {        
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         service = ctx.getBean("serviceLayer", ClassRosterServiceLayer.class);
 //        ClassRosterDao dao = new ClassRosterDaoStubImpl();
@@ -40,10 +39,7 @@ public class ClassRosterServiceLayerTest {
     
     @BeforeAll
     public void setUpClass() throws Exception {
-        List<Student>studentList = service.getAllStudents();
-        for (Student student : studentList){
-            service.removeStudent(student.getStudentId());
-        }
+       
     }
     
     @AfterAll
@@ -52,15 +48,15 @@ public class ClassRosterServiceLayerTest {
     
     @BeforeEach
     public void setUp() throws Exception {
-        Student student = new Student("0001");
+        Student student = new Student("0002");
         student.setFirstName("Sally");
         student.setLastName("Smith");
         student.setCohort("Java-May-2020");
         service.createStudent(student); 
         
-        student = new Student("0002");
-        student.setFirstName("Sally");
-        student.setLastName("Smith");
+        student = new Student("0003");
+        student.setFirstName("Wally");
+        student.setLastName("Jones");
         student.setCohort("Java-May-2020");
         service.createStudent(student);  
     }
@@ -73,19 +69,15 @@ public class ClassRosterServiceLayerTest {
      * Test of createStudent method, of class ClassRosterServiceLayer.
      */
     @Test // -- "Business Rules" CreateStudent 1 of 3 Test --    
-    public void testCreateStudent() throws Exception {
-        Student student = new Student("0021");
-        student.setFirstName("Sally");
-        student.setLastName("Smith");
-        student.setCohort("Java-May-2020");
-        service.createStudent(student);        
+    public void testCreateStudent() {
+        //Test for create shown above
     }
     
     @Test // -- "Business Rules" CreateStudent 2 of 3 Test --    
     public void testCreateStudentDuplicateId() throws Exception{
-        Student student = new Student("0002");
-        student.setFirstName("Sally");
-        student.setLastName("Smith");
+        Student student = new Student("0001");
+        student.setFirstName("John");
+        student.setLastName("Doe");
         student.setCohort("Java-May-2020");
         
         try {
@@ -110,13 +102,21 @@ public class ClassRosterServiceLayerTest {
             return;                
         }
     }    
+    
+    /**
+     * Test of getAllStudents method, of class ClassRosterServiceLayer.
+     */
+    @Test    
+    public void testGetAllStudents() throws Exception {
+        assertEquals(1, service.getAllStudents().size());
+    }
 
     /**
      * Test of getStudent method, of class ClassRosterServiceLayer.
      */
     @Test    
     public void testGetStudent() throws Exception {
-        Student student = service.getStudent("0002");
+        Student student = service.getStudent("0001");
         assertNotNull(student);
         
         student = service.getStudent("9900");
@@ -128,17 +128,11 @@ public class ClassRosterServiceLayerTest {
      */
     @Test    
     public void testRemoveStudent() throws Exception {
-        Student student = service.removeStudent("0001");
+        Student student = service.removeStudent("0003");
         assertNull(student);        
     }
     
-    /**
-     * Test of getAllStudents method, of class ClassRosterServiceLayer.
-     */
-    @Test    
-    public void testGetAllStudents() throws Exception {
-        assertEquals(2, service.getAllStudents().size());
-    }
+    
    
     
 }

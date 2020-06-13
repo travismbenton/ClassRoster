@@ -6,3 +6,39 @@
 2020-06-12T02:35:41.001510500 : createStudent: ID: 0002 |Name: Tim Ford |Cohort: Java
 2020-06-12T02:42:58.845980 : createStudent: ID: 0003 |Name: Sally Jones |Cohort: Java
 2020-06-12T02:47:08.704025600 : removeStudent: 0003
+2020-06-12T14:45:18.835728500 : createStudent: ID: 0002 |Name: Sally Smith |Cohort: Java-May-2020
+2020-06-12T14:45:18.851350600 : createStudent: ID: 0021 |Name: Sally Smith |Cohort: Java-May-2020
+2020-06-12T14:45:18.851350600 : removeStudent: 0001
+2020-06-12T14:58:08.483159600 : removeStudent: 0003
+2020-06-12T15:02:32.393288300 : removeStudent: 0003
+2020-06-12T15:02:32.408911400 : createStudent: ID: 0001 |Name: John Doe |Cohort: Java-May-2020
+2020-06-12T15:04:10.078938700 : removeStudent: 0003
+2020-06-12T15:05:26.152600 : removeStudent: 0003
+2020-06-12T15:06:19.040901800 : removeStudent: 0003
+2020-06-12T15:07:49.254859800 : removeStudent: 0003
+2020-06-12T15:10:02.041485400 : createStudent: ID: 0001 |Name: John Doe |Cohort: Java-May-2020
+2020-06-12T15:10:02.041485400 : removeStudent: 0003
+2020-06-12T15:10:32.682390500 : removeStudent: 0003
+2020-06-12T15:11:22.232306500 : removeStudent: 0003
+2020-06-12T15:11:31.227478600 : removeStudent: 0003
+2020-06-12T15:12:00.118223300 : removeStudent: 0003
+2020-06-12T21:07:41.497336600 : removeStudent: 0003
+2020-06-12T21:09:36.084217800 : removeStudent: 0003
+2020-06-12T21:14:53.910475 : removeStudent: 0003
+2020-06-12T21:15:30.509099700 : removeStudent: 0003
+2020-06-12T21:15:30.531230400 : createStudent: ID: 0001 |Name: John Doe |Cohort: Java-May-2020
+2020-06-12T21:15:40.008022500 : removeStudent: 0003
+2020-06-12T21:16:11.758034100 : removeStudent: 0003
+2020-06-12T21:16:26.323330100 : removeStudent: 0003
+2020-06-12T21:17:09.887545500 : removeStudent: 0003
+2020-06-12T21:17:33.675457700 : removeStudent: 0003
+2020-06-12T21:17:33.675457700 : createStudent: ID: 0001 |Name: John Doe |Cohort: Java-May-2020
+2020-06-12T21:18:08.026419900 : removeStudent: 0003
+2020-06-12T21:18:34.518689300 : removeStudent: 0003
+2020-06-12T21:19:25.069200200 : createStudent: ID: 0001 |Name: John Doe |Cohort: Java-May-2020
+2020-06-12T21:19:25.076181500 : removeStudent: 0003
+2020-06-12T21:19:47.603575700 : removeStudent: 0003
+2020-06-12T22:04:02.160042200 : createStudent: ID: 001 |Name: g g |Cohort: d
+2020-06-12T22:04:29.686565800 : createStudent: ID: 002 |Name: d d |Cohort: d
+2020-06-12T22:04:55.332103500 : removeStudent: 001
+2020-06-12T22:05:04.363853200 : removeStudent: 002
